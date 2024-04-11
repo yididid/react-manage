@@ -1,5 +1,13 @@
 # React + TypeScript + Vite
 
+
+//antd 5.5以上不需要引用antd.css，只需要安装即可
+
+
+
+
+
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

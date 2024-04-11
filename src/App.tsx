@@ -1,14 +1,21 @@
 
-import Comp1 from "./components/Comp1"
-import Comp2 from "./components/Comp2"
+import { Button } from "antd"
+// import {UpCircleOutlined} from "@ant-design/icons"
+//antd 5.5以上不需要引用antd.css
+import router from "./router"
+import {useRoutes,Link} from "react-router-dom"
 
 
 function App() {
+
+  const outlet =   useRoutes(router)
+
+
   return (
     <div className="APP">
-      顶级组件123
-      <Comp1></Comp1>
-      <Comp2></Comp2>
+      {/* <Link to="/home">home</Link>
+      <Link to="/about">about</Link> */}
+      {outlet}
     </div>
   )
 }
