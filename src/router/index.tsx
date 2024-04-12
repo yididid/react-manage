@@ -3,6 +3,7 @@ import React,{lazy} from "react"
 //Navigate重定向组件
 import { Navigate } from "react-router-dom"
 import Home from '../views/Home'
+import Login from '../views/Login'
 const Page301 = lazy(()=>import('../views/Page301'))
 const Page1 = lazy(()=>import('../views/Page1'))
 const Page2 = lazy(()=>import('../views/Page2'))
@@ -36,6 +37,10 @@ const routes =[
         element:withLoadingComponent(<Page301></Page301>)
       }
     ]
+  },
+  {
+    path:"/login",
+    element:<Login></Login>
   },
   //访问其他路径时候直接跳转到首页
   {
