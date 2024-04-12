@@ -12,10 +12,16 @@ import "@/assets/styles/global.scss"
 import App from './App'
 import { BrowserRouter} from 'react-router-dom'
 
+//状态管理
+import {Provider} from "react-redux"
+import store from "@/store"
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>{/**生产开发模式，组件会执行两次，外网不会 */}
+  <Provider store={store}>
+  {/* <React.StrictMode>*生产开发模式，组件会执行两次，外网不会 */}
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>,
+  {/* </React.StrictMode> */}
+  </Provider>
 )

@@ -52,3 +52,11 @@
     font-size: 20px;
   }
 }
+// 控制验证码盒子
+.captchaBox{
+  display: flex;
+  .captchaImg{
+    margin-left: 20px;
+    cursor: pointer;
+  }
+}
