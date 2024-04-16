@@ -28,15 +28,42 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem('page1', '/page1', <PieChartOutlined />),
-  getItem('page2 2', '/page2', <DesktopOutlined />),
-  getItem('page3', 'page3', <UserOutlined />, [
-    getItem('page301', '/page3/page301'),
-    getItem('Bill', '4'),
-    getItem('Alex', '5'),
+  getItem('首页', '/index', <PieChartOutlined />),
+  getItem('店铺', '/store', <DesktopOutlined />),
+  getItem('商品', 'goods', <UserOutlined />, [
+    getItem('平台商品', '/goods/list'),
+    getItem('平台添加', '/goods/add'),
+    getItem('平台商品', '/goods/page301'),
+    getItem('平台品牌', '48'),
+    getItem('自营商品', '55'),
+    getItem('自营品牌', '56'),
+    getItem('标配商品', '57'),
   ]),
-  getItem('Team', 'page4', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
-  getItem('Files', '9', <FileOutlined />),
+  getItem('订单', 'page4', <UserOutlined />, [
+    getItem('采购单', '/page3/page301'),
+    getItem('客户订单', '4'),
+    getItem('订单列表', '50'),
+    getItem('售后列表', '53'),
+  ]),
+  getItem('财务', 'page5', <UserOutlined />, [
+    getItem('结算单列表', '/page3/page301'),
+    getItem('我的钱包', '40'),
+    getItem('支付密码设置', '52'),
+  ]),
+  getItem('会员', 'page6', <UserOutlined />, [
+    getItem('邀请会员', '/page3/page301'),
+    getItem('邀请用户列表', '41'),
+  ]),
+  getItem('数据', 'page7', <UserOutlined />, [
+    getItem('销售统计', '/page3/page301'),
+    getItem('售后统计', '42'),
+    getItem('商品统计', '43'),
+    getItem('操作日记', '44'),
+  ]),
+  getItem('广告管理', 'page8', <UserOutlined />, [
+    getItem('广告位列表', '/page3/page301'),
+    getItem('广告列表', '422'),
+  ]),
 ];
 
 

@@ -3,10 +3,12 @@ import React,{lazy} from "react"
 //Navigate重定向组件
 import { Navigate } from "react-router-dom"
 import Home from '../views/Home'
+import HomePage from '../views/HomePage'
 import Login from '../views/Login'
 const Page301 = lazy(()=>import('../views/Page301'))
-const Page1 = lazy(()=>import('../views/Page1'))
-const Page2 = lazy(()=>import('../views/Page2'))
+const Store = lazy(()=>import('../views/Store'))
+const GoodsList = lazy(()=>import('../views/Goods/GoodsList'))
+const GoodsAdd = lazy(()=>import('../views/Goods/GoodsAdd'))
 
 const withLoadingComponent=(comp:JSX.Element)=>(
   <React.Suspense fallback={<div>Loading</div>}>
@@ -18,23 +20,28 @@ const routes =[
   //嵌套路由开始
   {
     path:"/",
-    element:<Navigate to="/page1"></Navigate>
+    element:<Navigate to="/index"></Navigate>
   },
   {
     path:'/',
     element:<Home></Home>,
     children:[
       {
-        path:"/page1",
-        element:withLoadingComponent(<Page1></Page1>)
+        path:"/index",
+        element:withLoadingComponent(<HomePage></HomePage>)
       },
       {
-        path:"/page2",
-        element:withLoadingComponent(<Page2></Page2>)
+        path:"/store",
+        element:withLoadingComponent(<Store></Store>)
       },
       {
-        path:"/page3/page301",
-        element:withLoadingComponent(<Page301></Page301>)
+        path:"/goods/list",
+        element:withLoadingComponent(<GoodsList></GoodsList>)
+      }
+      ,
+      {
+        path:"/goods/add",
+        element:withLoadingComponent(<GoodsAdd></GoodsAdd>)
       }
     ]
   },
@@ -45,7 +52,7 @@ const routes =[
   //访问其他路径时候直接跳转到首页
   {
     path:"*",
-    element:<Navigate to="/page1"></Navigate>
+    element:<Navigate to="/index"></Navigate>
   }
 ]
 

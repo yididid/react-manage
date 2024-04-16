@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Breadcrumb, Layout, theme } from 'antd';
 import {Outlet} from "react-router-dom"
 
-import MainMenu from "@/components/MainMenu"
+import MainMenu from "@/components/layout/MainMenu"
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -27,7 +27,7 @@ const View: React.FC = () => {
           {/*面包屑 */}
           <Breadcrumb style={{ lineHeight: '64px' }}>
             <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+            <Breadcrumb.Item>首页</Breadcrumb.Item>
           </Breadcrumb>
         </Header>
         {/*右边内容部分-白色底盒子 */}
