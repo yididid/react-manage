@@ -2,7 +2,10 @@
 
 主要运用技术：# React + TypeScript + Vite + toolkit + redux 
 
-//antd 5.5以上不需要引用antd.css，只需要安装即可
+
+项目展示
+![1713260709576](https://github.com/yididid/react-manage/assets/56509940/7a2641f1-e2c9-40cc-b419-0e1d79ccfe19)
+
 
 一、环境
 "@ant-design/icons": "^5.3.6",
