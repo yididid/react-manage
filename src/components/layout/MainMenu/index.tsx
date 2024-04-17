@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect } from 'react';
 import {
   DesktopOutlined,
   FileOutlined,
@@ -32,7 +32,7 @@ const items: MenuItem[] = [
   getItem('店铺', '/store', <DesktopOutlined />),
   getItem('商品', 'goods', <UserOutlined />, [
     getItem('平台商品', '/goods/list'),
-    getItem('平台添加', '/goods/add'),
+    getItem('平台添加', '/goods/edit'),
     getItem('平台商品', '/goods/page301'),
     getItem('平台品牌', '48'),
     getItem('自营商品', '55'),
@@ -66,10 +66,19 @@ const items: MenuItem[] = [
   ]),
 ];
 
-
 const Comp: React.FC = () => {
+  
   const navigateTo = useNavigate();
   const currentRouter =  useLocation();
+  const [selectedKeys, setSelectedKeys] = useState(currentRouter.pathname);//当前选中项
+  const [stateOpenKeys, setStateOpenKeys] = useState(firstOpenkey);//默认二级导航栏
+  
+  useEffect(() => {//组件动态更新
+    setSelectedKeys(currentRouter.pathname)
+
+    //是否展开二级导航栏
+    setStateOpenKeys(firstOpenkey())
+  })
 
   const menuClick = (e:{key:string})=>{
     console.log(e.key)
@@ -77,35 +86,35 @@ const Comp: React.FC = () => {
     navigateTo(e.key);
   }
 
-  //默认是否展开二级导航栏start
-  let firstOpenkey:string="";
+  function firstOpenkey(): string{
+    for(let i=0;i<items.length;i++){
+      //判断找到情况
+      if(items[i]!['children']&&items[i]!['children'].length>0 && items[i]!['children'].find(findkey)){
+        return items[i]!.key as string;
+      }
+    }
+    return ''
+  }
+
   function findkey(obj:{key:string}){
     return obj.key===currentRouter.pathname
   }
-  for(let i=0;i<items.length;i++){
-    //判断找到情况
-    if(items[i]!['children']&&items[i]!['children'].length>0 && items[i]!['children'].find(findkey)){
-      firstOpenkey = items[i]!.key as string;
-      break;
-    }
-  }
-  //默认是否展开二级导航栏end
 
-  const [stateOpenKeys, setStateOpenKeys] = useState([firstOpenkey]);//默认二级导航栏
   const handleonOpenChange =(keys:string[])=>{
     //展开和回收的事件
-    setStateOpenKeys([keys[keys.length-1]])
+    setStateOpenKeys(keys[keys.length-1])
   }
 
   return(
     <Menu 
       theme="dark" 
       defaultSelectedKeys={[currentRouter.pathname]} 
+      selectedKeys={[selectedKeys]}
       mode="inline" 
       items={items} 
       onClick={menuClick} 
       onOpenChange={handleonOpenChange}
-      openKeys={stateOpenKeys}
+      openKeys={[stateOpenKeys]}
       />
   )
 }

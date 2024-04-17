@@ -57,7 +57,7 @@ const view=()=>{
       if(res.code===200){
         message.success("登录成功！")
         localStorage.setItem("token",res.data.token)
-        navigateTo("/page1")
+        navigateTo("/index")
       }else{
         message.warning(res.msg)
       }
@@ -78,8 +78,8 @@ const view=()=>{
     //   message.success("登录成功！")
     //   // 2、保存token
     //   localStorage.setItem("lege-react-management-token",loginAPIRes.token)
-    //   // 3、跳转到/page1
-    //   navigateTo("/page1")
+    //   // 3、跳转到/index
+    //   navigateTo("/index")
     //   // 4、删除本地保存中的uuid
     //   localStorage.removeItem("uuid")
     // }

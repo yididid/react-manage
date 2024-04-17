@@ -1,27 +1,30 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+// import {POST} from "@/request/service"
+// import {LoginByAccount} from "@/request/api"
+// import {removeUndefinedProps} from "@/public/js/common"
 import {
   Button,
   Col,
   Form,
-  Image,
   Input,
-  Modal,
-  Popover,
   Row,
   Select,
   Space,
   Table,
-  TablePaginationConfig,
-  Tag,
-  Tooltip,
-  message,
+  Modal
 } from "antd";
+import {
+  ExclamationCircleFilled
+} from '@ant-design/icons';
 import styles from "./index.module.css";
 
 import GoodsStatus from "@/store/modules/GoodsStatus/GoodsLibrary"
-
+const { confirm } = Modal;
 const GoodsList=()=>{
   const [form] = Form.useForm();
+  const navigate = useNavigate();
+  const [list, setList] = useState(GoodsStatus);
 
   const columns = [//表头
     {
@@ -118,7 +121,7 @@ const GoodsList=()=>{
             type="link"
             block
             onClick={() => {
-              // router.push(`/book/edit/${row._id}`);
+              handleNavigation('/goods/edit',row);
             }}
           >
             编辑
@@ -128,7 +131,7 @@ const GoodsList=()=>{
             danger
             block
             onClick={() => {
-              // handleDeleteModal(row._id as string);
+              handleDeleteModal(row);
             }}
           >
             删除
@@ -138,17 +141,71 @@ const GoodsList=()=>{
     },
   ];
 
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  // const fetchData = useCallback(
-  //   (search?:any) => {
-  //     const { name, category, author } = search || {};
-      
-  //   },
-  //   [pagination]
-  // );
+
+  const fetchData = useCallback((search?:any) => {
+    // console.log("search")
+    // console.log(search)
+    //这里获得选择数据后，可以通过接口拿取数据库里面的数值
+
+    //方法一，这里是通过筛选前端数值
+    // const search1 = { name: '简约',shield: '是'};
+    if(!search){
+      return false
+    }
+    const filteredData = GoodsStatus.filter(item => {
+      // 对每个对象的属性进行遍历匹配
+      return Object.keys(search).every(key => {
+        // 创建正则表达式，不区分大小写，多了一个s标志，表示"."可以匹配换行符
+        const regex = new RegExp(search[key], 'is');
+        // 对象的属性值中匹配正则表达式
+        return regex.test(item[key]);
+      });
+    });
+    // console.log("filteredData")
+    // console.log(filteredData)
+    setList(filteredData)
+
+
+    //方法二，通过接口获取数据
+    // const data=removeUndefinedProps(search)
+    // POST(LoginByAccount,data).then((res:any)=>{
+    //   if(res.code===200){
+    //     setList(filteredData)
+    //   }else{
+    //     message.warning(res.msg)
+    //   }
+    // })
+
+  }, []); 
+
 
   const handleSearchFinish=(values:any)=>{//表单完成时提交数据
-    // fetchData(values);
+    fetchData(values);
+  }
+
+  function handleNavigation(path:any,row:any) {//跳转页面携带参数id
+    navigate(path,{state: { id: row.id }});
+  }
+
+  function handleDeleteModal(row:any){
+    confirm({
+      title: 'Are you sure delete this task?',
+      icon: <ExclamationCircleFilled />,
+      content: row.name,
+      okText: 'Yes',
+      okType: 'danger',
+      cancelText: 'No',
+      onOk() {
+        setList(list.filter(item => item.id !== row.id))
+      },
+      onCancel() {
+        console.log('Cancel');
+      },
+    });
   }
 
   return (
@@ -208,7 +265,7 @@ const GoodsList=()=>{
             </Form.Item>
           </Col>
           <Col span={3}>
-            <Form.Item name="block_status" label="屏蔽状态">
+            <Form.Item name="shield" label="屏蔽状态">
               <Select placeholder="请选择" options={[
                  { value: '', label: '请选择' },
                  { value: '是', label: '是' },
@@ -239,7 +296,7 @@ const GoodsList=()=>{
             </Form.Item>
           </Col>
           <Col span={3}>
-            <Form.Item name="ship_free" label="是否包邮">
+            <Form.Item name="free" label="是否包邮">
               <Select placeholder="请选择" options={[
                  { value: '', label: '请选择' },
                  { value: '是', label: '是' },
@@ -267,14 +324,14 @@ const GoodsList=()=>{
       <div className={styles.tableWrap}>
         <Table
           size="large"
-          dataSource={GoodsStatus}
+          dataSource={list}
           columns={columns}
           rowKey={(GoodsStatus) => GoodsStatus.id}
           // onChange={handleTableChange}
           pagination={{
-            ...GoodsStatus,
-            total: GoodsStatus.length,
-            showTotal: () => `共 ${GoodsStatus.length} 条`,
+            ...list,
+            total: list.length,
+            showTotal: () => `共 ${list.length} 条`,
           }}
         />
       </div>

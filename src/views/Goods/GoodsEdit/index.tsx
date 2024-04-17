@@ -1,6 +1,6 @@
 import { Button } from "antd"
-const GoodsAdd=()=>{
-
+const GoodsEdit=()=>{
+  
   return (
     <div className="APP">
       商品添加
@@ -8,4 +8,4 @@ const GoodsAdd=()=>{
   )
 }
 
-export default GoodsAdd
+export default GoodsEdit

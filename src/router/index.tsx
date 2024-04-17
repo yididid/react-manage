@@ -8,7 +8,7 @@ import Login from '../views/Login'
 const Page301 = lazy(()=>import('../views/Page301'))
 const Store = lazy(()=>import('../views/Store'))
 const GoodsList = lazy(()=>import('../views/Goods/GoodsList'))
-const GoodsAdd = lazy(()=>import('../views/Goods/GoodsAdd'))
+const GoodsEdit = lazy(()=>import('../views/Goods/GoodsEdit'))
 
 const withLoadingComponent=(comp:JSX.Element)=>(
   <React.Suspense fallback={<div>Loading</div>}>
@@ -40,8 +40,8 @@ const routes =[
       }
       ,
       {
-        path:"/goods/add",
-        element:withLoadingComponent(<GoodsAdd></GoodsAdd>)
+        path:"/goods/edit",
+        element:withLoadingComponent(<GoodsEdit></GoodsEdit>)
       }
     ]
   },
@@ -50,10 +50,10 @@ const routes =[
     element:<Login></Login>
   },
   //访问其他路径时候直接跳转到首页
-  {
-    path:"*",
-    element:<Navigate to="/index"></Navigate>
-  }
+  // {
+  //   path:"*",
+  //   element:<Navigate to="/index"></Navigate>
+  // }
 ]
 
 export default routes
