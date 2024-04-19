@@ -7,6 +7,7 @@
 
 ![1713411418495](https://github.com/yididid/react-manage/assets/56509940/5d7e1bbc-f995-4ef1-a009-8337a7f06caa)
 
+![1713509213284](https://github.com/yididid/react-manage/assets/56509940/ed595fa8-1741-4e61-941b-e17163b35e3e)
 
 ![1713260709576](https://github.com/yididid/react-manage/assets/56509940/7a2641f1-e2c9-40cc-b419-0e1d79ccfe19)
 
