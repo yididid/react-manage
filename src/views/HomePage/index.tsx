@@ -32,31 +32,31 @@ const HomePage=()=>{
               <div className={styles.floor1OperateLine}>
                 <img src="" alt="" />
                 <div className={styles.floor1Operatebox}>
-                  <h2>2</h2>
-                  <span>29天订单总数</span>
+                  <h2>398</h2>
+                  <span>30天订单总数</span>
                 </div>
                 <div className={styles.floor1Operatebox}>
-                  <h2>2</h2>
-                  <span>29天备单总数</span>
+                  <h2>460</h2>
+                  <span>30天备单总数</span>
                 </div>
                 <div className={styles.floor1Operatebox}>
-                  <h2>2</h2>
-                  <span>29天采购总数</span>
+                  <h2>62</h2>
+                  <span>30天采购总数</span>
                 </div>
               </div>
               <div className={styles.floor1OperateLine}>
                 <img src="" alt="" />
                 <div className={styles.floor1Operatebox}>
-                  <h2>2</h2>
-                  <span>29天付款订单</span>
+                  <h2>567</h2>
+                  <span>30天付款订单</span>
+                </div>
+                <div className={styles.floor1Operatebox}>
+                  <h2>502</h2>
+                  <span>30天成功订单</span>
                 </div>
                 <div className={styles.floor1Operatebox}>
                   <h2>2</h2>
-                  <span>29天成功订单</span>
-                </div>
-                <div className={styles.floor1Operatebox}>
-                  <h2>2</h2>
-                  <span>29天售后订单</span>
+                  <span>30天售后订单</span>
                 </div>
               </div>
             </div>
