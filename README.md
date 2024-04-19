@@ -42,6 +42,9 @@
 
 3、若出现跨域问题，可以将vite.config.ts里面配置proxy：target路径即可
 
+四、项目总结 整体项目实现了一个基本的功能，但个别功能还有待完善。觉得项目不错的，可以给个Star，谢谢！ 如果您觉得本项目对你有所帮助，不妨扫描下方二维码（微信）请我喝杯咖啡，谢谢！
+
+![image](https://github.com/yididid/react-manage/assets/56509940/938c0929-8c8c-441c-bc56-2af3f078a695)
 
 
 
