@@ -1,0 +1,115 @@
+.floor{
+  .floor1{
+    display: flex;
+    .floor1Left{
+      width: 60%;
+      flex: 0 0 auto;
+      .floor1Title{
+        display: flex;
+        align-items: center;
+        padding: 20px 0;
+        background: rgba(242, 242, 242, 1);
+        border-radius: 8px;
+        .floor1TitleChoice,.floor1TitleDate,.floor1TitleUpdateDate{
+          flex: 1;
+          text-align: center;
+        }
+      }
+      .floor1Operate{
+        margin-top: 20px;
+        h1{
+          padding-left: 26px;
+          border-left: 4px solid #c6aa92;
+          height: 20px;
+          line-height: 16px;
+          font-weight: bold;
+          font-size: 16px;
+          color: #333;
+        }
+        .floor1OperateLine{
+          display: flex;
+          align-items: center;
+          padding: 20px;
+          img{
+            width: 70px;
+            height: 70px;
+            margin-right: 20px;
+          }
+          .floor1Operatebox{
+            flex: 1;
+            h2{
+              font-size: 26px;
+              color: #f9bf34
+            }
+            span{
+              display: block;
+              margin-top: 8px;
+              color: #666;
+            }
+          }
+        }
+
+      }
+    }
+    .floor1Right{
+      flex: 1 1 auto;
+      margin-left: 20px;
+      h1{
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        color: #333;
+        line-height: 30px;
+        background: rgba(242, 242, 242, 1);
+        border-radius: 8px;
+      }
+      .floor1RightCent{
+        width: 100%;
+        height: 370px;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        .floor1RightLine{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: 20px 0 20px 30px;
+          position: relative;
+          color: #333333;
+          &::after{
+            display: inline-block;
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -25px;
+            right: 0;
+            bottom: 0;
+            margin-top: -7px;
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            background-color: #1677ff;
+            z-index: 2;
+          }
+        }
+        
+      }
+    }
+  }
+  .floor2{
+    .floor2Title{
+      padding-left: 26px;
+      border-left: 4px solid #c6aa92;
+      height: 20px;
+      line-height: 16px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #333;
+    }
+    .floor2Cent{
+
+    }
+  }
+  
+}

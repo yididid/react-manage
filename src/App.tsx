@@ -3,6 +3,10 @@
 import router from "./router"
 import {useRoutes,Link} from "react-router-dom"
 
+//antd、中文版
+import { ConfigProvider } from 'antd';
+import zh_CN from 'antd/lib/locale/zh_CN';
+
 function App() {
 
   const outlet =   useRoutes(router)
@@ -10,7 +14,9 @@ function App() {
 
   return (
     <>
-      {outlet}
+      <ConfigProvider locale={zh_CN}>
+        {outlet}
+      </ConfigProvider>
     </>
   )
 }

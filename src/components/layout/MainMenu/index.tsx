@@ -75,9 +75,6 @@ const Comp: React.FC = () => {
   
   useEffect(() => {//组件动态更新
     setSelectedKeys(currentRouter.pathname)
-
-    //是否展开二级导航栏
-    setStateOpenKeys(firstOpenkey())
   })
 
   const menuClick = (e:{key:string})=>{
